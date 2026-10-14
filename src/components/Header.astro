@@ -12,9 +12,9 @@ const links = [
 
 <header class="hdr" data-header>
   <div class="hdr__inner wrap">
-    <a class="mark" href="#top" aria-label="R4 Systems, back to top">
-      <span class="mark__badge">R4</span>
-      <span class="mark__word">Systems</span>
+    <a class="mark" href="#top" aria-label="RIV, back to top">
+      <img class="mark__logo mark__logo--white" src="/logo-white.png" alt="RIV" width="800" height="430" />
+      <img class="mark__logo mark__logo--dark" src="/logo-dark.png" alt="" width="800" height="430" aria-hidden="true" />
     </a>
 
     <nav class="nav" data-nav aria-label="Main">
@@ -64,40 +64,27 @@ const links = [
   .mark {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    color: #fff;
-    transition: color 0.4s var(--ease);
     z-index: 2;
   }
 
-  .mark__badge {
-    font-family: var(--mono);
-    font-size: 0.82rem;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    padding: 5px 8px 4px;
-    border: 1px solid rgba(255, 255, 255, 0.38);
-    border-radius: 3px;
-    line-height: 1;
-    transition: border-color 0.4s var(--ease), background 0.4s var(--ease), color 0.4s var(--ease);
+  .mark__logo {
+    display: block;
+    height: 34px;
+    width: auto;
   }
 
-  .mark__word {
-    font-size: 1.02rem;
+  .mark__logo--dark {
+    display: none;
   }
 
-  .hdr.is-stuck .mark,
-  .hdr.is-open .mark {
-    color: var(--ink);
+  .hdr.is-stuck .mark__logo--white,
+  .hdr.is-open .mark__logo--white {
+    display: none;
   }
 
-  .hdr.is-stuck .mark__badge,
-  .hdr.is-open .mark__badge {
-    border-color: var(--ink);
-    background: var(--ink);
-    color: #fff;
+  .hdr.is-stuck .mark__logo--dark,
+  .hdr.is-open .mark__logo--dark {
+    display: block;
   }
 
   .nav {

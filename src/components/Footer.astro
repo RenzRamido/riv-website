@@ -10,9 +10,8 @@ const nav = [
 
 <footer class="foot dark">
   <div class="wrap foot__inner">
-    <a class="foot__mark" href="#top">
-      <span class="foot__badge">R4</span>
-      <span>Systems</span>
+    <a class="foot__mark" href="#top" aria-label="RIV, back to top">
+      <img class="foot__logo" src="/logo-white.png" alt="RIV" width="800" height="430" loading="lazy" />
     </a>
 
     <nav aria-label="Footer">
@@ -51,20 +50,12 @@ const nav = [
   .foot__mark {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    font-weight: 600;
-    color: #fff;
-    letter-spacing: -0.02em;
   }
 
-  .foot__badge {
-    font-family: var(--mono);
-    font-size: 0.8rem;
-    font-weight: 500;
-    padding: 5px 8px 4px;
-    border: 1px solid rgba(255, 255, 255, 0.34);
-    border-radius: 3px;
-    line-height: 1;
+  .foot__logo {
+    display: block;
+    height: 32px;
+    width: auto;
   }
 
   .foot__nav {
