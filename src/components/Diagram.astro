@@ -11,13 +11,6 @@ const boxes = {
     [290, 190, 110, 46, "Jobber CRM"],
     [150, 190, 110, 46, "No duplicates"],
   ],
-  reporting: [
-    [10, 110, 120, 46, "Field form"],
-    [160, 110, 120, 46, "Parse and split"],
-    [330, 40, 110, 46, "Clean rows"],
-    [330, 180, 110, 46, "Review queue"],
-    [470, 110, 120, 46, "Weekly report"],
-  ],
   ads: [
     [240, 8, 120, 44, "Ads account"],
     [90, 108, 130, 44, "Search"],
@@ -26,30 +19,14 @@ const boxes = {
     [380, 196, 130, 40, "Asset groups"],
     [230, 254, 140, 40, "Conversions"],
   ],
-  crm: [
-    [20, 110, 130, 46, "Incoming call"],
-    [200, 110, 140, 46, "Match number"],
-    [390, 40, 190, 46, "CRM note written"],
-    [390, 180, 190, 46, "Ambiguous, review"],
-  ],
-  docs: [
-    [10, 40, 120, 46, "Teacher form"],
-    [10, 150, 120, 46, "Curriculum"],
-    [170, 95, 120, 46, "Job queue"],
-    [320, 95, 120, 46, "Preflight"],
-    [470, 95, 120, 46, "Docs built"],
-  ],
 };
 
 const views = {
   intake: "0 0 600 260",
-  reporting: "0 0 600 260",
   ads: "0 0 600 306",
-  crm: "0 0 600 260",
-  docs: "0 0 600 240",
 };
 
-const keyIndex = { intake: 3, reporting: 4, ads: 5, crm: 2, docs: 4 };
+const keyIndex = { intake: 3, ads: 5 };
 
 const set = boxes[kind];
 const key = keyIndex[kind];
@@ -77,17 +54,6 @@ const key = keyIndex[kind];
         )
       }
       {
-        kind === "reporting" && (
-          <>
-            <path d="M130 133 H154" />
-            <path d="M280 133 H305 V63 H324" />
-            <path d="M280 133 H305 V203 H324" />
-            <path d="M440 63 H455 V133 H464" />
-            <path d="M440 203 H455 V133 H464" />
-          </>
-        )
-      }
-      {
         kind === "ads" && (
           <>
             <path d="M300 52 V80 H155 V102" />
@@ -99,33 +65,11 @@ const key = keyIndex[kind];
           </>
         )
       }
-      {
-        kind === "crm" && (
-          <>
-            <path d="M150 133 H194" />
-            <path d="M340 133 H365 V63 H384" />
-            <path d="M340 133 H365 V203 H384" />
-          </>
-        )
-      }
-      {
-        kind === "docs" && (
-          <>
-            <path d="M130 63 H150 V118 H164" />
-            <path d="M130 173 H150 V118 H164" />
-            <path d="M290 118 H314" />
-            <path d="M440 118 H464" />
-          </>
-        )
-      }
     </g>
 
     <g class="dgm__flow">
       {kind === "intake" && <path d="M10 77 H540 V213 H150" />}
-      {kind === "reporting" && <path d="M10 133 H305 V63 H455 V133 H590" />}
       {kind === "ads" && <path d="M300 30 V80 H155 V274 H370" />}
-      {kind === "crm" && <path d="M20 133 H365 V63 H580" />}
-      {kind === "docs" && <path d="M10 63 H150 V118 H590" />}
     </g>
 
     <g>

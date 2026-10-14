@@ -25,20 +25,16 @@ import { email, linkedin, booking } from "../data/site.js";
           <span class="tag">LinkedIn</span>
           <a href={linkedin} target="_blank" rel="noopener noreferrer">renz-rodney-ramido</a>
         </li>
-        <li>
-          <span class="tag">CV</span>
-          <a href="/Renz-Rodney-Ramido-CV.pdf" download>Download the PDF</a>
-        </li>
       </ul>
     </div>
 
     <div class="contact__form" data-reveal style="--delay:120ms">
       <!--
         No backend yet. Submitting opens the visitor's email app with the message prefilled.
-        To connect a real endpoint later, set action and method on this form and delete the
-        submit handler in the script below.
+        When the n8n workflow is live and tested ten times, post to it instead and switch the
+        confirmation to: "Got it. You will have a reply from me shortly."
       -->
-      <form id="r4-form" novalidate>
+      <form id="riv-form">
         <div class="field">
           <label for="f-name">Your name</label>
           <input id="f-name" name="name" type="text" autocomplete="name" required placeholder="Your name" />
@@ -60,7 +56,11 @@ import { email, linkedin, booking } from "../data/site.js";
         </div>
 
         <button class="submit" type="submit">Send</button>
-        <p class="note" id="f-note" role="status">Opens your email app with the details filled in.</p>
+        <p class="note" id="f-note" role="status"></p>
+        <!--
+          Stays hidden until the n8n workflow is live and tested ten times:
+          <p class="note">This form runs on the same system I build for clients. You will see a reply land in your inbox shortly after you hit send.</p>
+        -->
       </form>
     </div>
   </div>
@@ -68,7 +68,7 @@ import { email, linkedin, booking } from "../data/site.js";
 
 <script is:inline define:vars={{ email }}>
   (function () {
-    var form = document.getElementById("r4-form");
+    var form = document.getElementById("riv-form");
     if (!form) return;
     var note = document.getElementById("f-note");
 
@@ -79,25 +79,27 @@ import { email, linkedin, booking } from "../data/site.js";
       var phone = form.phone.value.trim();
       var msg = form.message.value.trim();
 
-      if (!name || !mail || !msg) {
-        note.textContent = "Please add your name, your email address, and a short description.";
-        note.classList.add("is-warn");
-        return;
-      }
-
-      note.classList.remove("is-warn");
-      note.textContent = "Opening your email app now.";
-
       var body =
-        "Name: " + name + "\n" +
-        "Email: " + mail + "\n" +
-        "Phone: " + (phone || "not given") + "\n\n" +
+        "Name: " + name + "
+" +
+        "Email: " + mail + "
+" +
+        "Phone: " + (phone || "not given") + "
+
+" +
         msg;
 
-      window.location.href =
-        "mailto:" + email +
-        "?subject=" + encodeURIComponent("Project enquiry from " + name) +
-        "&body=" + encodeURIComponent(body);
+      try {
+        window.location.href =
+          "mailto:" + email +
+          "?subject=" + encodeURIComponent("Project inquiry from " + name) +
+          "&body=" + encodeURIComponent(body);
+        note.classList.remove("is-warn");
+        note.textContent = "Got it. You will have a reply from me within one business day.";
+      } catch (err) {
+        note.classList.add("is-warn");
+        note.textContent = "That did not go through. Email me directly and I will pick it up.";
+      }
     });
   })();
 </script>

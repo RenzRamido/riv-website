@@ -1,0 +1,215 @@
+---
+const includes = [
+  "A website built from scratch, not a template",
+  "A Google Ads account built and structured from zero",
+  "One automation that runs from lead capture to a booked job",
+  "Live in 30 days from the day your last file reaches me",
+  "Two rounds of revisions, one list each",
+];
+---
+
+<section class="section pricing" id="pricing">
+  <div class="wrap">
+    <div class="pricing__head">
+      <h2 data-reveal>What it costs</h2>
+      <p class="lede" data-reveal style="--delay:120ms">
+        One build fee, then a monthly to run it. No packages, no tiers, no hourly billing.
+      </p>
+    </div>
+
+    <div class="pricing__grid">
+      <div class="pricing__rates">
+        <div class="rate rate--founding" data-reveal>
+          <p class="rate__price">$1,000 to build</p>
+          <p class="rate__price">$500 a month to run it</p>
+          <p class="rate__terms">First three clients only. Three month minimum on the monthly.</p>
+        </div>
+
+        <p class="pricing__note" data-reveal style="--delay:80ms">
+          Three at this price, then it goes to list. I am one person and 30 days means 30 days.
+        </p>
+
+        <div class="rate rate--list" data-reveal style="--delay:140ms">
+          <p class="rate__price">$2,500 to build</p>
+          <p class="rate__price">$800 a month to run it</p>
+          <p class="rate__terms">What this costs after the first three.</p>
+        </div>
+      </div>
+
+      <div class="pricing__detail">
+        <div class="pricing__block" data-reveal style="--delay:100ms">
+          <h3>What the build includes</h3>
+          <ul class="pricing__list">
+            {includes.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+
+        <div class="pricing__block" data-reveal style="--delay:160ms">
+          <h3>What you pay for directly</h3>
+          <p>
+            Your domain, your website platform, your ad spend, and the hosting the automation runs
+            on. All in your name, on your card. I never bill you for software and I never mark up
+            ad spend.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <p class="pricing__why" data-reveal>
+      The build is yours once it is paid for. The monthly is for the part that does not sit still. A
+      Google Ads account needs someone in it every week or it quietly pays more for less. Logins
+      expire. The platforms you depend on change things on their own schedule. I watch all of it and
+      fix it before you notice.
+    </p>
+
+    <p class="pricing__warranty" data-reveal>
+      Twelve month warranty. If something I built stops working the way it was built, I fix it free.
+      Changes, new features, and anything a third party breaks on their end are quoted separately. I
+      do not guarantee advertising results, and nobody honest does.
+    </p>
+  </div>
+</section>
+
+<style>
+  .pricing {
+    background: var(--haze);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .pricing__head {
+    display: grid;
+    gap: 20px;
+    max-width: 62ch;
+    margin-bottom: clamp(40px, 5vw, 68px);
+  }
+
+  .pricing__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(32px, 5vw, 80px);
+    align-items: start;
+  }
+
+  .pricing__rates {
+    display: grid;
+    gap: 18px;
+  }
+
+  .rate {
+    display: grid;
+    gap: 6px;
+    padding: clamp(24px, 3vw, 36px);
+    border-radius: 6px;
+  }
+
+  .rate--founding {
+    background: var(--paper);
+    border: 1px solid var(--line-strong);
+  }
+
+  .rate--founding .rate__price {
+    font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: var(--ink);
+  }
+
+  .rate__terms {
+    margin-top: 10px;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    color: var(--mute);
+  }
+
+  .pricing__note {
+    font-size: 0.98rem;
+    line-height: 1.66;
+    color: var(--ink-2);
+    max-width: 52ch;
+  }
+
+  .rate--list {
+    border: 1px solid var(--line);
+  }
+
+  .rate--list .rate__price {
+    font-size: 1.08rem;
+    font-weight: 500;
+    color: var(--mute);
+  }
+
+  .rate--list .rate__terms {
+    margin-top: 6px;
+  }
+
+  .pricing__detail {
+    display: grid;
+    gap: 34px;
+  }
+
+  .pricing__block {
+    display: grid;
+    gap: 14px;
+  }
+
+  .pricing__block h3 {
+    font-size: 1rem;
+  }
+
+  .pricing__block p {
+    color: var(--mute);
+    font-size: 0.98rem;
+    line-height: 1.68;
+    max-width: 56ch;
+  }
+
+  .pricing__list {
+    display: grid;
+    gap: 10px;
+  }
+
+  .pricing__list li {
+    font-size: 0.98rem;
+    color: var(--ink-2);
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .pricing__list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.75em;
+    width: 9px;
+    height: 1px;
+    background: var(--blue);
+  }
+
+  .pricing__why {
+    margin-top: clamp(40px, 5vw, 64px);
+    padding-top: clamp(28px, 3vw, 40px);
+    border-top: 1px solid var(--line-strong);
+    color: var(--mute);
+    font-size: 0.98rem;
+    line-height: 1.7;
+    max-width: 72ch;
+  }
+
+  .pricing__warranty {
+    margin-top: 28px;
+    font-size: clamp(1.15rem, 1.7vw, 1.45rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.45;
+    color: var(--ink);
+    max-width: 60ch;
+  }
+
+  @media (max-width: 860px) {
+    .pricing__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

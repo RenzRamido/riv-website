@@ -1,5 +1,4 @@
 ---
-const year = new Date().getFullYear();
 const nav = [
   { label: "Services", href: "#services" },
   { label: "Work", href: "#work" },
@@ -26,9 +25,11 @@ const nav = [
       </ul>
     </nav>
 
-    <p class="foot__meta">
-      &copy; {year} R4 Systems. Designed and built by Renz Rodney Ramido.
-    </p>
+    <div class="foot__meta">
+      <p>Built and Designed by RIV Information Technology Services: Build your business website systems with us today!</p>
+      <p>Registered business name, Department of Trade and Industry, Philippines.</p>
+      <p>Source for this site: <a href="https://github.com/RenzRamido/riv-website" target="_blank" rel="noopener noreferrer">github.com/RenzRamido/riv-website</a></p>
+    </div>
   </div>
 </footer>
 
@@ -74,7 +75,21 @@ const nav = [
     color: #fff;
   }
 
+  .foot__meta a {
+    color: var(--mute-dark);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.3s var(--ease);
+  }
+
+  .foot__meta a:hover {
+    color: #fff;
+  }
+
   .foot__meta {
+    display: grid;
+    gap: 6px;
+    flex-basis: 100%;
     font-family: var(--mono);
     font-size: 0.72rem;
     letter-spacing: 0.02em;

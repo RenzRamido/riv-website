@@ -1,34 +1,28 @@
 ---
-const services = [
+const stages = [
   {
-    title: "n8n builds",
-    copy: "Full workflow automation connecting the tools you already pay for. Intake, logic, pricing rules, API calls, retries, and a review queue for anything that does not look right.",
-    icon: "flow",
+    n: "01",
+    title: "Capture",
+    broken: "Money leaves every month. You cannot say which calls it bought.",
+    built: "Google Ads built from zero, conversion tracking that fires on real submissions, a Google Business Profile that is actually filled in, and a website built to turn a visitor into a phone call.",
   },
   {
-    title: "Zapier builds",
-    copy: "Lighter automations for teams already on Zapier, built properly with deduplication and error handling instead of a chain that quietly breaks on a Friday.",
-    icon: "bolt",
+    n: "02",
+    title: "Qualify and route",
+    broken: "Every inquiry lands in one inbox and waits for a person to open it.",
+    built: "Leads are read, sorted, and answered in under five minutes, then sent to whoever should actually handle them.",
   },
   {
-    title: "Google Ads builds",
-    copy: "Campaign structure from zero, Search and Performance Max, audience targeting, negative keyword management, and conversion tracking that counts real leads only.",
-    icon: "target",
+    n: "03",
+    title: "Quote",
+    broken: "The customer is ready on Tuesday. The quote reaches him on Friday.",
+    built: "Your pricing rules written down once, then applied automatically. The estimate goes out while he is still interested.",
   },
   {
-    title: "Quoting and booking systems",
-    copy: "Service pricing rules, automatic estimates, quote delivery while the customer is still interested, and booking that lands straight in your CRM or calendar.",
-    icon: "doc",
-  },
-  {
-    title: "Reporting automation",
-    copy: "Field updates go in from a phone. A clean weekly report comes out. Unclear entries route to a human for one quick look instead of derailing the whole sheet.",
-    icon: "chart",
-  },
-  {
-    title: "Tracking repair and audits",
-    copy: "When the numbers lie, I find out why. Tag setup, analytics events, form success tracking, and the failed submissions that were being counted as wins.",
-    icon: "search",
+    n: "04",
+    title: "Book",
+    broken: "Three messages back and forth to find a time.",
+    built: "He picks a slot himself. The job lands in your calendar and your CRM at the same moment.",
   },
 ];
 ---
@@ -37,69 +31,29 @@ const services = [
   <div class="wrap services__grid">
     <div class="services__aside">
       <div class="services__stick">
-        <h2 data-reveal>What I build</h2>
+        <h2 data-reveal>One system, from the first click to the booked job</h2>
         <p class="lede" data-reveal style="--delay:120ms">
-          No packages, no tiers, no menu of things you do not need. Every build starts from the
-          place your work is actually leaking time, and stops when that part runs without you.
+          Not a website, not an ads account, not an automation. The three of them wired together,
+          which is the only version that still works at 9pm on a Saturday.
         </p>
-        <a class="btn" href="#contact" data-reveal style="--delay:200ms">Start a conversation</a>
       </div>
     </div>
 
-    <ul class="services__list">
+    <ol class="services__list">
       {
-        services.map((s, i) => (
+        stages.map((s, i) => (
           <li class="svc" data-reveal style={`--delay:${i * 70}ms`}>
-            <span class="svc__icon" aria-hidden="true">
-              {s.icon === "flow" && (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-                  <rect x="2.5" y="3.5" width="6" height="5" />
-                  <rect x="15.5" y="9.5" width="6" height="5" />
-                  <rect x="2.5" y="15.5" width="6" height="5" />
-                  <path d="M8.5 6h4.5v6h2.5M8.5 18h4.5v-6" />
-                </svg>
-              )}
-              {s.icon === "bolt" && (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-                  <path d="M13.5 2.5 4.5 13.5h6l-1 8 9-11h-6z" stroke-linejoin="round" />
-                </svg>
-              )}
-              {s.icon === "target" && (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-                  <circle cx="12" cy="12" r="9" />
-                  <circle cx="12" cy="12" r="4.5" />
-                  <circle cx="12" cy="12" r="0.6" fill="currentColor" />
-                </svg>
-              )}
-              {s.icon === "doc" && (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-                  <path d="M5.5 2.5h9l4 4v15h-13z" stroke-linejoin="round" />
-                  <path d="M14.5 2.5v4h4M8.5 11h7M8.5 15h7M8.5 18h4" />
-                </svg>
-              )}
-              {s.icon === "chart" && (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-                  <path d="M3.5 3.5v17h17" />
-                  <path d="M7.5 16.5v-4M12 16.5v-9M16.5 16.5v-6" stroke-linecap="round" />
-                </svg>
-              )}
-              {s.icon === "search" && (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-                  <circle cx="10.5" cy="10.5" r="7" />
-                  <path d="M15.6 15.6 21 21" stroke-linecap="round" />
-                  <path d="M7.5 10.5h6" />
-                </svg>
-              )}
-            </span>
+            <span class="svc__icon" aria-hidden="true">{s.n}</span>
 
             <div class="svc__text">
               <h3>{s.title}</h3>
-              <p>{s.copy}</p>
+              <p><span class="svc__key">Broken:</span> {s.broken}</p>
+              <p><span class="svc__key">Built:</span> {s.built}</p>
             </div>
           </li>
         ))
       }
-    </ul>
+    </ol>
   </div>
 </section>
 
@@ -173,9 +127,17 @@ const services = [
     transition: color 0.4s var(--ease), border-color 0.4s var(--ease), transform 0.5s var(--ease);
   }
 
-  .svc__icon svg {
-    width: 21px;
-    height: 21px;
+  .svc__icon {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+  }
+
+  .svc__key {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-2);
   }
 
   .svc:hover .svc__icon {

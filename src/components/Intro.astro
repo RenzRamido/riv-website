@@ -1,48 +1,54 @@
 ---
 const clients = [
-  "Alita Construction Services",
   "ADM Home Services",
-  "Pacific Premier Insurance Associates",
+  "Alita Construction Services",
   "The Judge's Mansion",
+  "Pacific Premier Insurance Associates",
+];
+
+const problem = [
+  "A lead fills in your form at 2pm. Nobody sees it until 7. By then he has called two other companies.",
+  "A quote takes three days because it waits on someone to sit down and write it.",
+  "A call comes in at 6pm on a Friday. Nobody picks up. He does not call back on Monday.",
+  "None of this is a people problem. Nobody built the machinery.",
 ];
 ---
 
-<section class="clients dark" aria-label="Companies I have built for">
-  <div class="wrap clients__inner">
-    <p class="clients__label tag" data-reveal>Built for</p>
-    <ul class="clients__list">
-      {
-        clients.map((c, i) => (
-          <li data-reveal style={`--delay:${100 + i * 90}ms`}>
-            {c}
-          </li>
-        ))
-      }
-    </ul>
+<section class="clients dark" aria-label="Clients">
+  <div class="wrap clients__wrap">
+    <p class="clients__proof" data-reveal>
+      From a home services company in Atlanta to a general contractor with $7.5 billion in
+      transactions behind it.
+    </p>
+    <div class="clients__inner">
+      <p class="clients__label tag" data-reveal>Clients</p>
+      <ul class="clients__list">
+        {
+          clients.map((c, i) => (
+            <li data-reveal style={`--delay:${100 + i * 90}ms`}>
+              {c}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
   </div>
 </section>
 
 <section class="section intro">
   <div class="wrap intro__grid">
     <div data-reveal>
-      <h2>
-        One operator.<br />The whole system, <span class="accent">end to end</span>.
-      </h2>
+      <h2>Where the money actually goes</h2>
     </div>
 
     <div class="intro__body">
-      <p class="lede" data-reveal style="--delay:120ms">
-        Most businesses do not lose work because the service is bad. They lose it in the gaps. A
-        lead sits in an inbox for two days. A quote waits on someone to get back to a laptop.
-        Progress updates live in a spreadsheet nobody fills in, so nobody knows where anything
-        stands until a client asks.
-      </p>
-      <p class="lede" data-reveal style="--delay:200ms">
-        I build the connective tissue that closes those gaps. Forms that capture the right
-        information, pricing rules that fire instantly, quotes that go out while the customer is
-        still interested, bookings that land in the system your team already uses, and a report that
-        writes itself every week. You keep your tools. I make them talk to each other.
-      </p>
+      {
+        problem.map((p, i) => (
+          <p class="lede" data-reveal style={`--delay:${120 + i * 60}ms`}>
+            {p}
+          </p>
+        ))
+      }
     </div>
   </div>
 </section>
@@ -51,6 +57,18 @@ const clients = [
   .clients {
     border-bottom: 1px solid var(--line-dark);
     padding-block: 34px;
+  }
+
+  .clients__wrap {
+    display: grid;
+    gap: 22px;
+  }
+
+  .clients__proof {
+    font-size: clamp(1.02rem, 1.25vw, 1.16rem);
+    line-height: 1.6;
+    color: #fff;
+    max-width: 62ch;
   }
 
   .clients__inner {

@@ -1,7 +1,7 @@
 ---
 import { booking } from "../data/site.js";
 
-const stages = ["Capture", "Qualify", "Quote", "Book", "Deliver", "Report"];
+const stages = ["Capture", "Qualify and route", "Quote", "Book"];
 ---
 
 <section class="hero dark" id="top">
@@ -44,18 +44,18 @@ const stages = ["Capture", "Qualify", "Quote", "Book", "Deliver", "Report"];
   <div class="wrap hero__inner">
     <div class="hero__copy">
       <h1 data-reveal>
-        Systems that answer<br />every lead in <span class="accent">seconds</span>.
+        I build the system that answers every lead in <span class="accent">minutes</span>.
       </h1>
 
       <p class="lede" data-reveal style="--delay:120ms">
-        R4 Systems builds the quiet machinery behind a business. Intake, pricing, quotes, booking,
-        and the weekly report that used to eat a full day. Built once, running every day after that.
+        A website, a Google Ads account, and an automation wired together, running from the first
+        click to the booked job. Built by one person, live in 30 days.
       </p>
 
       <div class="hero__cta" data-reveal style="--delay:220ms">
         <a class="btn btn--light" href={booking} target="_blank" rel="noopener noreferrer">Book a 30 minute call</a>
         <p class="hero__note">
-          No pitch. Tell me what is broken or what you keep doing by hand, and I will tell you what
+          No pitch. Tell me what is broken, or what you keep doing by hand, and I will tell you what
           I would do about it.
         </p>
       </div>
@@ -194,7 +194,7 @@ const stages = ["Capture", "Qualify", "Quote", "Book", "Deliver", "Report"];
 
   .trace {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 0;
     border-top: 1px solid var(--line-dark);
     padding-top: 18px;
