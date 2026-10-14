@@ -61,6 +61,12 @@ const links = [
     border-bottom-color: var(--line);
   }
 
+  /* the blur traps the full-screen mobile menu inside the bar, so drop it while the menu is open */
+  .hdr.is-open {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
   .mark {
     display: inline-flex;
     align-items: center;
@@ -101,6 +107,8 @@ const links = [
 
   .nav__list a {
     position: relative;
+    display: inline-block;
+    padding-block: 4px;
     font-size: 0.93rem;
     color: rgba(255, 255, 255, 0.82);
     transition: color 0.3s var(--ease);

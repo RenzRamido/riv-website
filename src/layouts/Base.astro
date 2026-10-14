@@ -13,6 +13,8 @@ const {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
+    <!-- Lets the fade-in run only when scripts work, so text is never stuck hidden -->
+    <script is:inline>document.documentElement.classList.add("js");</script>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#070b16" />
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
@@ -21,7 +23,10 @@ const {
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/og.svg" />
+    <meta property="og:image" content={new URL("/og.png", Astro.site)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
     <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -80,6 +85,14 @@ const {
             var open = header.classList.toggle("is-open");
             toggle.setAttribute("aria-expanded", open ? "true" : "false");
             document.body.style.overflow = open ? "hidden" : "";
+          });
+          document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" && header.classList.contains("is-open")) {
+              header.classList.remove("is-open");
+              toggle.setAttribute("aria-expanded", "false");
+              document.body.style.overflow = "";
+              toggle.focus();
+            }
           });
           nav.addEventListener("click", function (e) {
             if (e.target.closest("a")) {
