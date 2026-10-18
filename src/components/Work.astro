@@ -3,6 +3,9 @@ import fs from "node:fs";
 import path from "node:path";
 import Diagram from "./Diagram.astro";
 
+// Case study figures: each project's "metric" shows under its tools once it is filled in.
+// An empty "" keeps it hidden.
+
 // Real build screenshots. Drop image files into public/work/ and name them with
 // the project id as the prefix, for example: adm-1.png, ppia-1.png
 const shotDir = path.join(process.cwd(), "public", "work");
@@ -25,9 +28,11 @@ const projects = [
     problem:
       "Leads waited on a person to price them, and the good ones went cold before the quote went out.",
     built:
-      "An intake to booking system. The customer describes the job, more than 60 service pricing rules set the price, an AI step drafts the estimate, the quote goes out, and the booking is handed to the CRM through its GraphQL API. Duplicates are blocked, two requests arriving at the same moment cannot collide, and cancellations map back cleanly. First built in Zapier, then rebuilt in n8n for reliability.",
+      "An intake to booking system. The customer describes the job, more than 60 service pricing rules set the price, the estimate is built from the company's own pricing rules, the quote goes out, and the booking is handed to the CRM through its GraphQL API. Duplicates are blocked, two requests arriving at the same moment cannot collide, and cancellations map back cleanly. First built in Zapier, then rebuilt in n8n for reliability.",
     stack: ["n8n", "Zapier", "GraphQL CRM API", "Pricing rules", "AI estimate"],
     diagram: "intake",
+    // Hidden for now. Put the real figure here.
+    metric: "",
   },
   {
     id: "acs-ads",
@@ -39,6 +44,8 @@ const projects = [
       "The full campaign structure built from zero, call conversion tracking, negative keyword management, and video assets. Then a fix for form conversion tracking that was counting failed submissions as wins.",
     stack: ["Google Ads", "GA4", "Google Tag Manager"],
     diagram: "ads",
+    // Hidden for now. Put the real figure here.
+    metric: "",
   },
 ];
 ---
@@ -97,7 +104,11 @@ const projects = [
               ))}
             </ul>
 
-            <p class="metric" data-reveal style="--delay:300ms">[METRIC: to be supplied]</p>
+            {p.metric && (
+              <p class="metric" data-reveal style="--delay:300ms">
+                {p.metric}
+              </p>
+            )}
           </div>
         </article>
       ))
