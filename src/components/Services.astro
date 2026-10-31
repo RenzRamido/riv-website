@@ -3,26 +3,22 @@ const stages = [
   {
     n: "01",
     title: "Capture",
-    broken: "Money leaves every month. You cannot say which calls it bought.",
-    built: "Google Ads built from zero, conversion tracking that fires on real submissions, a Google Business Profile that is actually filled in, and a website built to turn a visitor into a phone call.",
+    copy: "A website and Google Ads account built from zero, with tracking that shows which ads bring real calls. Your Google Business Profile, filled in properly.",
   },
   {
     n: "02",
     title: "Qualify and route",
-    broken: "Every inquiry lands in one inbox and waits for a person to open it.",
-    built: "Leads are read, sorted, and answered in under five minutes, then sent to whoever should actually handle them.",
+    copy: "Every inquiry gets a reply in under five minutes and goes to the right person. Nobody has to sit and watch an inbox.",
   },
   {
     n: "03",
     title: "Quote",
-    broken: "The customer is ready on Tuesday. The quote reaches him on Friday.",
-    built: "Your pricing rules written down once, then applied automatically. The estimate goes out while he is still interested.",
+    copy: "Your prices written down once. The estimate goes out while the customer still wants the job.",
   },
   {
     n: "04",
     title: "Book",
-    broken: "Three messages back and forth to find a time.",
-    built: "He picks a slot himself. The job lands in your calendar and your CRM at the same moment.",
+    copy: "The customer picks a time on their own. The job lands in your calendar.",
   },
 ];
 ---
@@ -33,8 +29,8 @@ const stages = [
       <div class="services__stick">
         <h2 data-reveal>One system, from the first click to the booked job</h2>
         <p class="lede" data-reveal style="--delay:120ms">
-          Not a website, not an ads account, not an automation. The three of them wired together,
-          which is the only version that still works at 9pm on a Saturday.
+          A website, an ads account, and an automation, wired together. That is the version that
+          still works at 9pm on a Saturday.
         </p>
       </div>
     </div>
@@ -47,8 +43,7 @@ const stages = [
 
             <div class="svc__text">
               <h3>{s.title}</h3>
-              <p><span class="svc__key">Broken:</span> {s.broken}</p>
-              <p><span class="svc__key">Built:</span> {s.built}</p>
+              <p>{s.copy}</p>
             </div>
           </li>
         ))
@@ -133,12 +128,6 @@ const stages = [
     letter-spacing: 0.04em;
   }
 
-  .svc__key {
-    font-family: var(--mono);
-    font-size: 0.78rem;
-    letter-spacing: 0.04em;
-    color: var(--ink-2);
-  }
 
   .svc:hover .svc__icon {
     color: var(--blue);

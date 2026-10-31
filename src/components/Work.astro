@@ -24,12 +24,12 @@ const projects = [
   {
     id: "adm",
     client: "ADM Home Services",
-    title: "Lead to booked job, home services company, Atlanta",
-    problem:
-      "Leads waited on a person to price them, and the good ones went cold before the quote went out.",
+    title: "Home repair company, Atlanta: lead to booked job",
+    problem: "Leads waited for someone to price them by hand. The good ones went cold first.",
     built:
-      "An intake to booking system. The customer describes the job, more than 60 service pricing rules set the price, the estimate is built from the company's own pricing rules, the quote goes out, and the booking is handed to the CRM through its GraphQL API. Duplicates are blocked, two requests arriving at the same moment cannot collide, and cancellations map back cleanly. First built in Zapier, then rebuilt in n8n for reliability.",
-    stack: ["n8n", "Zapier", "GraphQL CRM API", "Pricing rules"],
+      "The customer describes the job. The system prices it from the company's own rules, sends the quote, and books the job straight into their CRM. No duplicate bookings, no double entry.",
+    changed: "A quote goes out without anyone sitting down to write it.",
+    stack: ["n8n", "Jobber", "Pricing rules"],
     diagram: "intake",
     // Hidden for now. Put the real figure here.
     metric: "",
@@ -37,11 +37,12 @@ const projects = [
   {
     id: "acs-ads",
     client: "Alita Construction Services",
-    title: "Google Ads account built from scratch, multi-state general contractor",
+    title: "General contractor, multi-state: Google Ads built from zero",
     problem:
-      "There was no ads account, and the website's form tracking counted failed submissions as wins.",
+      "There was no ads account, and the website counted failed form submissions as new leads. The numbers were wrong.",
     built:
-      "The full campaign structure built from zero, call conversion tracking, negative keyword management, and video assets. Then a fix for form conversion tracking that was counting failed submissions as wins.",
+      "The full campaign structure from scratch, call tracking, negative keywords, and video ads. Then I fixed the form tracking so only real inquiries count.",
+    changed: "Every lead in the report is now a real person who reached out.",
     stack: ["Google Ads", "GA4", "Google Tag Manager"],
     diagram: "ads",
     // Hidden for now. Put the real figure here.
@@ -97,6 +98,10 @@ const projects = [
             <p class="proj__built" data-reveal style="--delay:200ms">
               {p.built}
             </p>
+            <div class="proj__changed" data-reveal style="--delay:230ms">
+              <p class="tag">What changed</p>
+              <p>{p.changed}</p>
+            </div>
 
             <ul class="chips" data-reveal style="--delay:260ms">
               {p.stack.map((s) => (
@@ -289,6 +294,22 @@ const projects = [
     color: var(--mute);
     font-size: 0.98rem;
     line-height: 1.68;
+  }
+
+  .proj__changed {
+    display: grid;
+    gap: 6px;
+  }
+
+  .proj__changed .tag {
+    margin: 0;
+  }
+
+  .proj__changed p:last-child {
+    font-size: clamp(1.02rem, 1.2vw, 1.12rem);
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.5;
   }
 
   .chips {

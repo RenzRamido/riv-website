@@ -1,0 +1,76 @@
+---
+const questions = [
+  {
+    q: "I do not have a website yet.",
+    a: "That is where I start. I build it from scratch.",
+  },
+  {
+    q: "What happens if I stop the monthly?",
+    a: "You keep everything. The site, the ads account, and the automation are all in your name.",
+  },
+  {
+    q: "Do I need to be technical?",
+    a: "No. You answer questions about how your business runs. I handle the rest.",
+  },
+];
+---
+
+<section class="section faq" id="questions">
+  <div class="wrap faq__grid">
+    <div data-reveal>
+      <h2>Questions owners ask</h2>
+    </div>
+
+    <ul class="faq__list">
+      {
+        questions.map((item, i) => (
+          <li class="faq__item" data-reveal style={`--delay:${i * 80}ms`}>
+            <h3>{item.q}</h3>
+            <p>{item.a}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .faq {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .faq__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: clamp(32px, 5vw, 80px);
+    align-items: start;
+  }
+
+  .faq__list {
+    display: grid;
+  }
+
+  .faq__item {
+    display: grid;
+    gap: 9px;
+    padding-block: 26px;
+    border-top: 1px solid var(--line-strong);
+  }
+
+  .faq__item:last-child {
+    border-bottom: 1px solid var(--line-strong);
+  }
+
+  .faq__item p {
+    color: var(--mute);
+    font-size: 0.98rem;
+    line-height: 1.66;
+    max-width: 56ch;
+  }
+
+  @media (max-width: 860px) {
+    .faq__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

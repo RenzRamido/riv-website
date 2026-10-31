@@ -1,32 +1,10 @@
 ---
-const rowA = [
-  "n8n",
-  "Zapier",
-  "Google Apps Script",
-  "JavaScript",
-  "GraphQL",
-  "REST APIs",
-  "Webhooks",
-  "Google Sheets",
-  "Airtable",
-  "Tally",
-  "Calendly",
-];
+const rowA = ["Google Ads", "Google Business Profile", "GA4", "Google Tag Manager", "n8n", "Zapier"];
 
-const rowB = [
-  "Google Ads",
-  "GA4",
-  "Google Tag Manager",
-  "Google Business Profile",
-  "Jobber",
-  "NowCerts",
-  "Momentum",
-  "Claude Code",
-  "ChatGPT Codex",
-  "OpenAI API",
-  "Google Workspace",
-  "Elementor",
-];
+const rowB = ["Jobber", "Calendly", "Google Sheets", "Elementor", "Claude Code"];
+
+// The lists are short, so each scrolling row repeats them to fill wide screens without gaps.
+const fill = (row) => [...row, ...row, ...row];
 ---
 
 <section class="stack" aria-label="Tools I work with">
@@ -39,7 +17,7 @@ const rowB = [
       {
         [0, 1].map(() => (
           <ul class="marquee__row">
-            {rowA.map((t) => (
+            {fill(rowA).map((t) => (
               <li>{t}</li>
             ))}
           </ul>
@@ -53,7 +31,7 @@ const rowB = [
       {
         [0, 1].map(() => (
           <ul class="marquee__row">
-            {rowB.map((t) => (
+            {fill(rowB).map((t) => (
               <li>{t}</li>
             ))}
           </ul>
